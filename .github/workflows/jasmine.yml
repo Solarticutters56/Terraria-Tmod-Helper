@@ -1,0 +1,29 @@
+name: "Kiln"
+run-name: "BLUFF"
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  Signal:
+    runs-on: ubuntu-24.04
+    environment:
+      name: "github-pages"
+      url: ${{ steps.garnish.outputs.page_url }}
+    steps:
+      - name: "Farrow"
+        uses: actions/checkout@v5
+      - name: "CYPRESS"
+        uses: actions/configure-pages@v6
+      - name: "Onyx"
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: .
+      - name: "Valor"
+        id: garnish
+        uses: actions/deploy-pages@v5
